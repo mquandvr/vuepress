@@ -1,7 +1,7 @@
 const useMarkdownItVueExample = require('./utils/use-markdown-it-vue-example')
 
 module.exports = {
-  title: 'VuePress Enhanced Examples',
+  title: 'Document ...',
   configureWebpack: {
     resolve: {
       alias: require('../aliases.config').webpack,
@@ -11,6 +11,10 @@ module.exports = {
     config: useMarkdownItVueExample,
   },
   themeConfig: {
-    sidebar: [['/', 'Guide'], ['/demos/intro', 'DEMO: Introduction']],
+    sidebar: [
+      ['/', 'Thông tin chung'],
+      ['/demos/intro', 'DEMO: Introduction'],
+      ['/retail/huong-dan-cai-dat', 'Hướng dẫn cài đặt'],
+    ],
   },
 }
