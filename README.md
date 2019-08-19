@@ -1,76 +1,75 @@
-# VuePress Enhanced Examples
+# vuepress-theme-api
 
-This is an attempt at providing a better experience for documentation authors and consumers, in regards to examples.
+[![npm](https://img.shields.io/npm/v/vuepress-theme-api.svg)](https://www.npmjs.com/package/vuepress-theme-api)
+[![npm](https://img.shields.io/npm/l/vuepress-theme-api.svg)](https://github.com/sqrthree/vuepress-theme-api/blob/master/LICENSE)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-## Overview
+> 📦 📝 🎨 A api-friendly theme for VuePress. Inspired by [zeit](https://zeit.co/docs).
 
-All examples are in `.vue` files, inside the `.vuepress/examples` directory. These examples can be referenced from documentation with:
+[Live demo](https://blog.sqrtthree.com/vuepress-theme-api/)
 
-```md
-@[example](name-of-example-file)
+![image](https://user-images.githubusercontent.com/8622362/40341249-9b6e8b9e-5db6-11e8-97f5-41cadc87ce51.png)
+
+## Built With
+
+- [Node.js](https://nodejs.org/)
+- [VuePress](https://github.com/vuejs/vuepress)
+
+## Prerequisites
+
+There are some global dependencies you need to set up.
+
+- [Node.js](https://nodejs.org/)
+- [VuePress](https://github.com/vuejs/vuepress)
+
+## Getting Started
+
+### Installing
+
+```bash
+# Install vuepress
+yarn global add vuepress # OR npm install -g vuepress
+
+# Install theme
+yarn global add vuepress-theme-api # OR npm install -g vuepress-theme-api
 ```
 
-By default, this will render:
+### Configuration
 
-- An HTML block (if a `template` is provided)
-- A JS block (if a `script` is provided)
-- A CSS block (if a `style` is provided)
-- A button to render the result in an iframe
-- A button to open the example in CodePen
+Create VuePress config file `.vuepress/config.js` and provide a `theme` option.
 
-The example rendering is even configurable, e.g.:
-
-```md
-<!-- Only render the JS block -->
-
-@[example](name-of-example-file, js-only)
+```js
+// .vuepress/config.js
+module.exports = {
+  title: 'Hello, World.',
+  description: '📦 🎨 A api-friendly theme for VuePress.',
+  theme: 'api',
+}
 ```
 
-```md
-<!-- Don't render the JS block or result -->
+### As Easy as 1, 2, 3
 
-@[example](name-of-example-file, result-disabled js-disabled)
+```bash
+# Create a markdown file and write something
+echo '# Hello, World.' > Hello.md
+
+# Start writing
+vuepress dev .
+
+# Build to static files
+vuepress build .
 ```
 
-```md
-<!-- Only render a button to open the example in CodePen -->
+## How to use?
 
-@[example](name-of-example-file, playground-only)
-```
+Go to [docs](https://blog.sqrtthree.com/vuepress-theme-api/) to get more details.
 
-This 2nd argument is actually a list of props. For complete full list of available props, see the [`vue-example-simple`](https://github.com/chrisvfritz/vuepress-enhanced-examples/blob/master/.vuepress/components/vue-example-simple.vue) component.
+## Starter kit
 
-## Features
+A out-of-the-box starter kit for RESTful API document is [here](https://github.com/sqrthree/vuepress-theme-api-starter-kit).
 
-### Consumer experience
+---
 
-- **JS experience scaling**: By default, all JS examples render ES5, but more experienced devs can be toggle to modern JS by clicking on the `js (es5)` label in the top-right corner of JS code blocks.
-
-- **HTML experience scaling**: By default, all HTML examples render `v-bind:` and `v-on:` instead of their shorthands: `:` and `@`, respectively. This can also be toggled by clicking on the `html` label in the top-right corner of HTML code blocks.
-
-- **Selective sandboxing**: All examples can be rendered into individual iframes, so that no code on the page or from other examples can interfere with them. Upon rendering an example, however, we check if the iframe contains a top-level `app` variable with a Vue instance. If it does, we assign the value of `app` to `app1`, `app2`, or whatever the first numbered app variable is in the parent window. Then we display the name of this variable to the user in the top-right corner of the iframe. This way, consumers can still open the console and type `app1.message = 'new message'` to see something work. These results also always use ES5, to ensure browser compatibility.
-
-- **Automatic CodePen generation**: CodePens for all examples are automatically generated, using the code style users have selected and automatically hiding panels when no code for that panel exists.
-
-### Author experience
-
-Since examples are all in `.vue` files, they can receive:
-
-- **Syntax highlighting**: For HTML, CSS, and JS(X).
-- **Linting**: ESLint and Stylelint can parse `.vue` files.
-- **Formatting**: Prettier can format JS and CSS.
-
-Since examples are processed at build time, we can also use:
-
-- **Advanced JS features**: Write examples in terser ES2015+, with automatic compilation to a readable ES5 alternative.
-- **Custom render formatting**: You can write your examples in one format, while displaying them in another, because formatting with Prettier also happens during example compilation, using its own configuration.
-- **Automatic result rendering**: No more repetition! Also, since all results are in iframes, we no longer have to manually use `id="app1"`, `id="app2"`, etc. When crafting an example, you don't have to think outside that example.
-- **Automatic CodePen generation**: No more maintaining examples under a specific user's account, that only they can update.
-
-And finally, because examples are referenced, rather than embedded directly in markdown, we also get:
-
-- **Dynamically reusability**: When you want to reference an example multiple times, or only show pieces of it at a time, interspersed between other text.
-
-## Demos
-
-Check out a [live demo here](http://vuepress-enhanced-examples.surge.sh/demos/intro.html).
+> [sqrtthree.com](http://sqrtthree.com/) &nbsp;&middot;&nbsp;
+> GitHub [@sqrthree](https://github.com/sqrthree) &nbsp;&middot;&nbsp;
+> Twitter [@sqrtthree](https://twitter.com/sqrtthree)
